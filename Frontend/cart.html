@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - FoodHub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+
+            <button class="hamburger-menu" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <!-- Dynamic links inserted by JS -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="featured">
+        <h2>Shopping Cart</h2>
+        
+        <div class="cart-layout" style="margin-top: 30px; margin-bottom: 60px;">
+            <!-- Left Column: Cart items table -->
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Total Price</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartItemsTable">
+                        <!-- Loaded dynamically -->
+                        <tr>
+                            <td colspan="5" class="no-records" style="padding: 40px;">
+                                <i class="fa-solid fa-cart-shopping"></i> Loading cart items...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Right Column: Cart summary -->
+            <div class="glass-card" style="padding: 30px; height: fit-content; display: flex; flex-direction: column; gap: 20px;">
+                <h3 style="font-size: 22px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">Order Summary</h3>
+                
+                <div style="display: flex; justify-content: space-between; font-size: 15px;">
+                    <span>Cart Subtotal</span>
+                    <b id="cartSubtotal" style="color: var(--text-main);">₹0.00</b>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 15px;">
+                    <span>Delivery Partner Fee</span>
+                    <b style="color: var(--success);">FREE</b>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: 700; border-top: 1px solid #E2E8F0; padding-top: 15px;">
+                    <span>To Pay</span>
+                    <span id="cartGrandTotal" style="color: var(--primary);">₹0.00</span>
+                </div>
+
+                <!-- Select Restaurant helper hidden input -->
+                <input type="hidden" id="selectedRestaurantName" value="Spicy Kitchen">
+
+                <button class="btn" onclick="proceedToCheckout()" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    <i class="fa-solid fa-circle-check"></i> Place Food Order
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - FoodHub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+
+            <button class="hamburger-menu" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <!-- Dynamic links inserted by JS -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="featured" style="margin-bottom: 60px;">
+        <h2>Track Food Orders</h2>
+        
+        <div class="table-wrapper" style="margin-top: 30px;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Restaurant</th>
+                        <th>Food Items</th>
+                        <th>Total Amount</th>
+                        <th>Payment Status</th>
+                        <th>Delivery Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersListTable">
+                    <!-- Dynamic rendering -->
+                    <tr>
+                        <td colspan="7" class="no-records" style="padding: 40px;">
+                            <i class="fa-solid fa-truck"></i> Loading order records...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

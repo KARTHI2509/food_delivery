@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu - FoodHub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+
+            <button class="hamburger-menu" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <!-- Dynamic links inserted by JS -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Restaurant Banner Section -->
+    <section class="hero" id="restaurantBanner" style="padding: 60px 40px; background-blend-mode: multiply; background-color: rgba(0,0,0,0.15); color: white;">
+        <h1 id="resDetailName" style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Restaurant Name</h1>
+        <p id="resDetailMeta" style="color: #F3F4F6; font-size: 16px; margin-bottom: 0;">Cuisine | Location</p>
+        <div id="resDetailRating" style="margin-top: 15px; font-weight: bold; background: white; color: var(--primary); padding: 5px 15px; border-radius: 20px; width: fit-content;">
+            <i class="fa-solid fa-star"></i> 4.5
+        </div>
+    </section>
+
+    <!-- Main Content Menu Grid -->
+    <main class="featured" style="padding-top: 40px; margin-bottom: 60px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h2>Explore Menu</h2>
+            <a href="cart.html" class="btn btn-secondary">
+                <i class="fa-solid fa-cart-shopping"></i> View Cart (<span id="cartCountBadge">0</span>)
+            </a>
+        </div>
+
+        <div class="grid-container" id="foodMenuGrid">
+            <!-- Food menu items loaded dynamically -->
+            <div class="no-records" style="grid-column: 1/-1;">
+                <i class="fa-solid fa-bowl-food"></i> Loading menu items...
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

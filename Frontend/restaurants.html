@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Restaurants - FoodHub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+
+            <button class="hamburger-menu" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <!-- Dynamic links inserted by JS -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Layout -->
+    <main class="featured">
+        <h2>Restaurant Management</h2>
+        
+        <div class="admin-layout" style="margin-top: 30px;">
+            <!-- Column 1: Add / Edit Form -->
+            <div class="glass-card" style="padding: 30px;">
+                <h3 id="formTitle" style="font-size: 22px; margin-bottom: 20px;">Register Restaurant</h3>
+                <form id="restaurantForm" onsubmit="handleRestaurantFormSubmit(event)">
+                    <div class="form-group">
+                        <label for="restaurantName">Restaurant Name *</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-store"></i>
+                            <input type="text" id="restaurantName" placeholder="e.g. Spicy Kitchen" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restaurantOwner">Owner Name *</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user-tie"></i>
+                            <input type="text" id="restaurantOwner" placeholder="e.g. Kiran Kumar" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restaurantLocation">Location *</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" id="restaurantLocation" placeholder="e.g. Hyderabad, Bengaluru" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restaurantCuisine">Cuisine Type *</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-bowl-food"></i>
+                            <input type="text" id="restaurantCuisine" placeholder="e.g. South Indian, Fast Food" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="restaurantRating">Rating (0.0 to 5.0) *</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-star"></i>
+                            <input type="number" id="restaurantRating" min="0" max="5" step="0.1" placeholder="e.g. 4.6" required>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button type="submit" class="btn" style="flex: 2; justify-content: center;">
+                            <i class="fa-solid fa-circle-plus"></i> Save Restaurant
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="clearRestaurantForm()" style="flex: 1; justify-content: center;">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Column 2: Listing Table -->
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Restaurant Name</th>
+                            <th>Owner</th>
+                            <th>Location</th>
+                            <th>Cuisine</th>
+                            <th>Rating</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="restaurantListTable">
+                        <!-- Loaded dynamically -->
+                        <tr>
+                            <td colspan="7" class="no-records"><i class="fa-solid fa-utensils"></i> Loading restaurants records...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - FoodHub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main style="display: flex; align-items: center; justify-content: center;">
+        <section class="form-section">
+            <h2>Create Profile</h2>
+            <form id="registerForm" onsubmit="handleRegisterSubmit(event)">
+                <div class="form-group">
+                    <label for="regName">Full Name *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="regName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">Email Address *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="Enter email address" required autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPhone">Phone Number *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="tel" id="regPhone" placeholder="Enter 10-digit mobile number" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regAddress">Address *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-house"></i>
+                        <input type="text" id="regAddress" placeholder="Street, Colony, Area" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="regCity">City *</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-city"></i>
+                        <input type="text" id="regCity" placeholder="e.g. Hyderabad, Bengaluru" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; display: justify-content; justify-content: center; margin-top: 10px;">
+                    <i class="fa-solid fa-user-plus"></i> Register Profile
+                </button>
+            </form>
+
+            <div class="form-footer">
+                <p>Already registered? <a href="login.html">Sign In</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

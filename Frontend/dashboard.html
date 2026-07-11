@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FoodHub</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+
+            <button class="hamburger-menu" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <!-- Dynamic links inserted by JS -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="featured" style="margin-bottom: 60px;">
+        <h2>Administrative Dashboard</h2>
+
+        <!-- Quick System Stats -->
+        <div class="stats-grid" style="margin-top: 30px;">
+            <div class="stat-card">
+                <i class="fa-solid fa-users"></i>
+                <div>
+                    <h3>Total Customers</h3>
+                    <h1 id="statCustomers">0</h1>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-utensils"></i>
+                <div>
+                    <h3>Total Restaurants</h3>
+                    <h1 id="statRestaurants">0</h1>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-burger"></i>
+                <div>
+                    <h3>Menu Items</h3>
+                    <h1 id="statFoods">0</h1>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <div>
+                    <h3>Total Orders</h3>
+                    <h1 id="statOrders">0</h1>
+                </div>
+            </div>
+
+            <div class="stat-card" style="border-color: rgba(16, 185, 129, 0.2);">
+                <i class="fa-solid fa-wallet" style="color: var(--success); background: rgba(16,185,129,0.08);"></i>
+                <div>
+                    <h3>Total Revenue</h3>
+                    <h1 id="statRevenue">₹0.00</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Customer CRUD -->
+        <section style="margin-bottom: 50px;">
+            <h2>Manage Customers</h2>
+            <div class="admin-layout" style="margin-top: 20px;">
+                <div class="glass-card" style="padding: 24px;">
+                    <h3 id="customerFormTitle">Add New Customer</h3>
+                    <form id="customerForm" onsubmit="handleCustomerCRUD(event)" style="margin-top: 15px;">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="custName" style="padding-left: 16px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="custEmail" style="padding-left: 16px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" id="custPhone" style="padding-left: 16px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Address *</label>
+                            <input type="text" id="custAddress" style="padding-left: 16px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>City *</label>
+                            <input type="text" id="custCity" style="padding-left: 16px;" required>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" class="btn" style="flex: 2; justify-content: center;">Save Customer</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearCustomerForm()" style="flex: 1; justify-content: center;">Clear</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address / City</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminCustomerTable">
+                            <!-- Dynamic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Manage Food Menu Items -->
+        <section style="margin-bottom: 50px;">
+            <h2>Manage Food Menu Items</h2>
+            <div class="admin-layout" style="margin-top: 20px;">
+                <div class="glass-card" style="padding: 24px;">
+                    <h3 id="foodFormTitle">Add New Dish</h3>
+                    <form id="foodForm" onsubmit="handleFoodCRUD(event)" style="margin-top: 15px;">
+                        <div class="form-group">
+                            <label>Restaurant *</label>
+                            <select id="foodRestaurantSelect" style="padding-left: 16px;" required>
+                                <option value="">Select Restaurant</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Dish Name *</label>
+                            <input type="text" id="foodName" style="padding-left: 16px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select id="foodCategory" style="padding-left: 16px;" required>
+                                <option value="Starter">Starter</option>
+                                <option value="Main Course">Main Course</option>
+                                <option value="Fast Food">Fast Food</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Dessert">Dessert</option>
+                                <option value="Sides">Sides</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Price (₹) *</label>
+                            <input type="number" id="foodPrice" min="1" placeholder="e.g. 299" style="padding-left: 16px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Availability *</label>
+                            <select id="foodAvailability" style="padding-left: 16px;" required>
+                                <option value="Available">Available</option>
+                                <option value="Out of Stock">Out of Stock</option>
+                            </select>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" class="btn" style="flex: 2; justify-content: center;">Save Dish</button>
+                            <button type="button" class="btn btn-secondary" onclick="clearFoodForm()" style="flex: 1; justify-content: center;">Clear</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Restaurant</th>
+                                <th>Dish Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminFoodTable">
+                            <!-- Dynamic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Manage Orders Status Logs -->
+        <section style="margin-bottom: 50px;">
+            <h2>Manage Platform Orders</h2>
+            <div class="table-wrapper" style="margin-top: 20px;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Restaurant</th>
+                            <th>Dishes Ordered</th>
+                            <th>Bill Amount</th>
+                            <th>Payment</th>
+                            <th>Delivery Track</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminOrderTable">
+                        <!-- Dynamic -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

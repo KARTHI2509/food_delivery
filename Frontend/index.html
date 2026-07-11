@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHub - Online Food Ordering</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h2><a href="index.html"><i class="fa-solid fa-utensils"></i> FoodHub</a></h2>
+
+            <button class="hamburger-menu" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <!-- Dynamic links inserted by JS -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="anim-fade-up">Hungry? Order Delicious Food Online</h1>
+        <p class="anim-fade-up">Browse restaurants in your city, explore diverse cuisines, and get hot meals delivered to your doorstep in minutes.</p>
+        <a href="#restaurantsSection" class="btn anim-fade-up">
+            <i class="fa-solid fa-magnifying-glass"></i> Explore Restaurants
+        </a>
+    </section>
+
+    <!-- Search & Filters -->
+    <section class="featured" id="searchSection" style="padding-bottom: 20px;">
+        <h2>Find Restaurants & Food</h2>
+        <div class="form-group" style="max-width: 600px; margin-top: 20px; display: flex; gap: 15px;">
+            <div class="input-wrapper" style="flex: 1;">
+                <i class="fa-solid fa-search"></i>
+                <input
+                    type="text"
+                    id="searchQuery"
+                    placeholder="Search by Restaurant Name, Cuisine, or Location..."
+                    style="padding-left: 44px;"
+                    onkeyup="handleSearch(event)"
+                >
+            </div>
+            <button class="btn" onclick="triggerSearch()" style="padding: 14px 24px;">
+                Search
+            </button>
+        </div>
+    </section>
+
+    <!-- Restaurant Listings Section -->
+    <section class="featured" id="restaurantsSection" style="padding-top: 10px;">
+        <h2>Popular Restaurants</h2>
+        <div class="grid-container" id="restaurantList" style="margin-top: 30px;">
+            <!-- Restaurants dynamically rendered by script.js -->
+        </div>
+    </section>
+
+    <!-- Featured Food Items Section -->
+    <section class="featured" style="padding-top: 10px; margin-bottom: 60px;">
+        <h2>Featured Food Items</h2>
+        <div class="grid-container" id="featuredFoodList" style="margin-top: 30px;">
+            <!-- Food items dynamically rendered by script.js -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>FoodHub</h3>
+                <p>Order food from the best restaurants near you. Fast checkout, real-time tracking, and verified customer reviews.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Customer portal</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html">My Cart</a></li>
+                    <li><a href="orders.html">My Orders</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-location-dot"></i> Gourmet Street, Hyderabad, India</p>
+                <p><i class="fa-solid fa-phone"></i> +91 99988 22211</p>
+                <p><i class="fa-solid fa-envelope"></i> contact@foodhub.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive news, premium deals, and special discounts.</p>
+                <div class="newsletter-form" style="display: flex; gap: 8px;">
+                    <input type="email" placeholder="Your Email Address" style="padding: 10px; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1); background: rgba(255,255,255,0.7); flex: 1;">
+                    <button class="btn" style="padding: 10px 15px;"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 FoodHub Delivery System. All Rights Reserved.</p>
+            <p style="margin-top: 8px; font-weight: 500; opacity: 0.85;">Developed by <span style="background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;">Karthi</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
